@@ -21,7 +21,7 @@ public class MyLinkedList<K extends Comparable<K>> {
             this.head = myNode;
         }
         else {
-            INode tempNode = this.head;
+            INode<K> tempNode = this.head;
             this.head = myNode;
             this.head.setNext(tempNode);
         }
@@ -111,5 +111,23 @@ public class MyLinkedList<K extends Comparable<K>> {
             this.tail.setNext(newNode);
             tail = newNode;
         }
+    }
+
+    public void popNode(K key) {
+        INode tempNode = head;
+        while (tempNode.getNext().getKey() != key) {
+            tempNode = tempNode.getNext();
+        }
+        tempNode.setNext(tempNode.getNext().getNext());
+    }
+
+    public int getSize() {
+        int size = 0;
+        INode tempNode = head;
+        while (tempNode != null) {
+            size++;
+            tempNode = tempNode.getNext();
+        }
+        return size;
     }
 }

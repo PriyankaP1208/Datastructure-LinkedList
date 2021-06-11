@@ -110,4 +110,22 @@ public class MyLinkedListTest {
         myLinkedList.printMyNodes();
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void given3Numbers_WhenDeletedOneElementAfter_ShouldPassLinkedListResult()
+    {
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
+        MyNode<Integer> mySecondNode = new MyNode<>(40);
+        MyNode<Integer> myThirdNode = new MyNode<>(30);
+        MyNode<Integer> myFourthNode = new MyNode<>(56);
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.add(mySecondNode);
+        myLinkedList.add(myThirdNode);
+        myLinkedList.add(myFourthNode);
+        myLinkedList.popNode(40);
+        int size = myLinkedList.getSize();
+        myLinkedList.printMyNodes();
+        Assert.assertEquals(3, size);
+    }
 }
