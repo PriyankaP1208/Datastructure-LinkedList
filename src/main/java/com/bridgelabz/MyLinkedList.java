@@ -72,4 +72,18 @@ public class MyLinkedList<K extends Comparable<K>> {
         this.head=head.getNext();
         return tempNode;
     }
+
+    public K popLast() {
+        INode<K> currentNode = head;
+        INode<K> previousNode = null;
+        while(currentNode.getNext() != null) {
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        K key = currentNode.getKey();
+        currentNode = null;
+        previousNode.setNext(null);
+        tail = previousNode;
+        return key;
+    }
 }
