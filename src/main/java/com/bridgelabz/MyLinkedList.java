@@ -100,4 +100,16 @@ public class MyLinkedList<K extends Comparable<K>> {
         }
         return null;
     }
+
+    public void insertAfter(INode<K> newNode) {
+        if (this.head == null) {
+            this.head = newNode;
+        }
+        if (tail == null) {
+            tail = newNode;
+        } else {
+            this.tail.setNext(newNode);
+            tail = newNode;
+        }
+    }
 }

@@ -91,4 +91,23 @@ public class MyLinkedListTest {
         tempNode = myLinkedList.search(30);
         Assert.assertEquals(30,tempNode.getKey());
     }
+
+    @Test
+    public void given3Numbers_WhenInsertAfterElementShould_PassLinkedListResult() {
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        MyNode<Integer> myFourthNode = new MyNode<>(40);
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<Integer>();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.add(mySecondNode);
+        myLinkedList.add(myThirdNode);
+        INode searchNode= myLinkedList.search(30);
+        myLinkedList.insert(searchNode, myFourthNode);
+        boolean result = (myLinkedList.head.equals(myThirdNode) && myLinkedList.head.getNext().equals(searchNode)
+                && myLinkedList.head.getNext().getNext().equals(myFourthNode)
+                && myLinkedList.tail.equals(myFirstNode));
+        myLinkedList.printMyNodes();
+        Assert.assertEquals(true, result);
+    }
 }
