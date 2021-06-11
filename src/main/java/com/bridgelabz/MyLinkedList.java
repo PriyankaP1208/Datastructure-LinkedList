@@ -86,4 +86,18 @@ public class MyLinkedList<K extends Comparable<K>> {
         tail = previousNode;
         return key;
     }
+
+    public INode<K> search(K key)
+    {
+        INode<K> tempNode = head;
+        while (tempNode!= null && tempNode.getNext()!= null)
+        {
+            if(tempNode.getKey().equals(key))
+            {
+                return tempNode;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return null;
+    }
 }
