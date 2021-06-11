@@ -31,7 +31,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    public void given3Numbers_WhenInsertingInBetweenShouldPassLinkedListResult()
+    public void given3Numbers_WhenInsertingInBetween_ShouldPassLinkedListResult()
     {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
@@ -43,6 +43,22 @@ public class MyLinkedListTest {
         boolean result = myLinkedList.head.equals(myFirstNode)&&
                 myLinkedList.head.getNext().equals(mySecondNode)
                 &&myLinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given3Numbers_WhenDeletedFirstElement_ShouldPassLinkedListResult() {
+        MyNode<Integer>myFirstNode = new MyNode<>(56);
+        MyNode<Integer>mySecondNode = new MyNode<>(30);
+        MyNode<Integer>myThirdNode = new MyNode<>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.pop();
+        boolean result = myLinkedList.head.equals(mySecondNode)&&
+                myLinkedList.head.getNext().equals(myThirdNode);
+        myLinkedList.printMyNodes();
         Assert.assertTrue(result);
     }
 }
